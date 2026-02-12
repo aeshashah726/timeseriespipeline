@@ -1,5 +1,3 @@
-# viptsproj
-
 timeseries_benchmark/
 │
 ├── pt/                              # Pretraining pipeline
