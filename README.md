@@ -19,13 +19,13 @@ timeseries_benchmark/
 │   └── reporting.py
 │
 ├── models/
-│   ├── backbone/                    # Shared backbone (PT + FT)
+│   ├── backbone/                    # Shared backbone (used in PT + FT)
 │   │   ├── model.py
 │   │   ├── encoder.py
 │   │   ├── temporal_block.py
 │   │   └── attention_layer.py
 │   │
-│   ├── heads/                       # Task-specific heads (FT)
+│   ├── heads/                       # Task-specific heads (used in FT)
 │   │   ├── anomaly_head.py
 │   │   ├── regression_head.py
 │   │   ├── classification_head.py
@@ -70,17 +70,17 @@ timeseries_benchmark/
 │   │
 │   └── dataloaders.py
 │
+├── logging/
+│   ├── logger.py
+│   ├── experiment_tracker.py
+│   └── wandb_logger.py
+│
 ├── configs/
 │   ├── model_config.yaml
 │   ├── data_config.yaml
 │   ├── anomaly_config.yaml
 │   ├── regression_config.yaml
 │   └── classification_config.yaml
-│
-├── logging/
-│   ├── logger.py
-│   ├── experiment_tracker.py
-│   └── wandb_logger.py
 │
 ├── utils/
 │   ├── seed.py
