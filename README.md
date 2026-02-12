@@ -1,3 +1,4 @@
+```
 timeseries_benchmark/
 │
 ├── pt/                              # Pretraining pipeline
@@ -94,3 +95,4 @@ timeseries_benchmark/
 │   └── run_eval.sh
 │
 └── README.md
+```
