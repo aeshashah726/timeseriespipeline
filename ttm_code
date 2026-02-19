@@ -1,0 +1,85 @@
+# TinyTimeMixer 
+
+## utils/ttm_args.py
+Move to: `timeseries_benchmark/utils/registry.py`  
+
+Functions to move:
+- `get_ttm_args`
+- `int_to_bool`
+
+---
+
+## utils/__init__.py
+Make this file: `timeseries_benchmark/utils/__init__.py`  
+
+Imports `get_ttm_args`/`registry.py`
+
+---
+
+## utils/ad_helpers.py
+Move into:  
+`timeseries_benchmark/tasks/anomaly_detection/evaluator.py`
+
+- `TinyTimeMixerADUtility`
+  - `__init__`
+  - `is_valid_mode`
+  - `compute_score`
+  - `adjust_boundary`
+
+---
+
+## configuration_tinytimemixer.py
+Move into:  
+`timeseries_benchmark/models/backbone/model.py`
+
+- `TinyTimeMixerConfig`
+  - `__init__`
+  - `check_and_init_preprocessing`
+
+---
+
+## HuggingFace __init__.py
+Packaging infrastructure for pip-distributed HuggingFace models
+
+---
+
+## modeling_tinytimemixer.py
+
+Move the following into `timeseries_benchmark/models/backbone/model.py`:
+- `TinyTimeMixerPreTrainedModel`
+- `TinyTimeMixerModel`
+  - `__init__`
+  - `forward`
+- `TinyTimeMixerPatchify`
+- `TinyTimeMixerPositionalEncoding`
+- `TinyTimeMixerStdScaler`
+- `TinyTimeMixerMeanScaler`
+- `TinyTimeMixerNOPScaler`
+- `TinyTimeMixerModelOutput`
+- `nll`
+- `pinball_loss`
+
+Move the following into `timeseries_benchmark/models/backbone/encoder.py`:
+- `TinyTimeMixerEncoder`
+  - `__init__`
+  - `forward`
+
+Move the following into `timeseries_benchmark/models/backbone/temporal_block.py`:
+- `TinyTimeMixerLayer`
+- `TinyTimeMixerChannelMixing`
+- `TinyTimeMixerFeatureMixing`
+- `TinyTimeMixerPatchMixing`
+- Any internal MLP blocks used inside these layers
+
+Move the following into `timeseries_benchmark/models/backbone/attention_layer.py`:
+- `TinyTimeMixerAttention`
+- Any attention helper functions
+- Mask-building utilities related to attention
+
+Move the following into `timeseries_benchmark/models/heads/forecasting_head.py`:
+- `TinyTimeMixerForPrediction`
+  - `__init__`
+  - `forward`
+  - `generate`
+- `TinyTimeMixerForPredictionOutput`
+- `SampleTinyTimeMixerPredictionOutput`
